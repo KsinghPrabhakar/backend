@@ -1,19 +1,22 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const cors = require('cors');
 const Product = require('./models/productModel')
 
 const app = express()
 app.use(express.json())
-
+app.use(cors())
 
 // Server connection
 app.listen(3000, ()=>  {
     console.log(`Server is runing on port 3000`)
 })
 // DB connection
-mongoose.connect("mongodb+srv://prabhakar:Prabhakar123@cluster0.ol2vqan.mongodb.net/?retryWrites=true&w=majority").then(()=>{
+mongoose.connect("mongodb+srv://prabhakar:Prabhakar123@cluster0.ol2vqan.mongodb.net/?retryWrites=true&w=majority")
+.then(()=>{
     console.log("Database connected successfully.")
-}).catch((error)=>{
+})
+.catch((error)=>{
     console.log(error.message)
 })
 
